@@ -39,14 +39,14 @@ export default class Sidebar extends React.Component<SideBarProps, SideBarState>
     return (
       <div>
         <div className="navigation">
-          <ul>
+          <div className="genreList">
             <button onClick={() =>this.handleButtonClick({ genre: 0, title: "All Movies" })}>All Movies</button>
             {this.state.genreList.map((g) => {
                 return (
                   <button onClick={() =>this.handleButtonClick({ genre: g.id, title: g.genre })}>{ g.genre }</button>
                 );
               })}
-          </ul>
+          </div>
         </div>
       </div>
     );
