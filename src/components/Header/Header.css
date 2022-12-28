@@ -1,0 +1,33 @@
+.nav-bar {
+  display: flex;
+  justify-content: left;
+  padding-left: 20px;
+  align-items: center;
+  border: 1px solid black;
+  background: lightseagreen;
+  border-radius: 7px;
+}
+
+.logo {
+  font-family: 'Bangers', cursive;
+  text-decoration: underline;
+}
+
+.nav-bar-subscript {
+  display: flex;
+  margin-left: 20px;
+  padding: 8px;
+  column-gap: 10px;
+}
+
+.nav-bar-subscript a {
+  background: red;
+  border-radius: 20px;
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 8px;
+}
+
+.nav-bar-subscript a:hover {
+  background: lightblue;
+}

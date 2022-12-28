@@ -1,0 +1,35 @@
+.tv-grid {
+    margin-left: 210px;
+    height: 100%;
+    width: 85vw;
+    position: fixed;
+    background-color: azure;
+}
+.tv-grid h3 {
+    text-align: center;
+    text-decoration: underline;
+}
+.tv-list {
+    margin-top: 10px;
+    height: 100%;
+}
+.tv-list ol {
+    display: grid;
+    align-items: start;
+    justify-items: start;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.tv-list ol li {
+    padding: 2px;
+    overflow: auto;
+}
+
+@media (max-width: 767px) {
+    .navigation {
+        left: -60px;
+    }
+    .tv-list ol {
+        column-count: 1;
+    }
+}

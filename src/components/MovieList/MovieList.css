@@ -1,0 +1,37 @@
+.movie-grid {
+    margin-left: 210px;
+    height: 100%;
+    width: 85vw;
+    position: fixed;
+    background-color: aqua;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.movie-grid h3 {
+    text-align: center;
+    text-decoration: underline;
+}
+.movie-list {
+    margin-top: 10px;
+    height: 100%;
+}
+.movie-list ol {
+    display: grid;
+    align-items: start;
+    justify-items: start;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.movie-list ol li {
+    padding: 2px;
+    overflow: auto;
+}
+
+@media (max-width: 767px) {
+    .navigation {
+        left: -60px;
+    }
+    .movie-list ol {
+        column-count: 1;
+    }
+}

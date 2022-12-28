@@ -1,0 +1,15 @@
+.criteria {
+    margin: 20px;
+    text-align: left;
+}
+.criteria-title {
+    text-decoration: underline;
+}
+
+.criteria-priority-title {
+    margin-bottom: 0;
+}
+
+.criteria-list {
+    margin-top: 0;
+}

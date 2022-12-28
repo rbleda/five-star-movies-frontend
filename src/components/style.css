@@ -1,0 +1,13 @@
+html {
+    background: grey;
+}
+
+p {
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: large;
+}
+
+a {
+    color: black;
+    font-family: 'Pangolin', cursive;
+}
