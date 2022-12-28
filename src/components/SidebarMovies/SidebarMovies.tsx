@@ -1,12 +1,35 @@
 import React from "react";
 import "./SidebarMovies.css";
 import "../style.css";
+import axios from "axios";
+
+interface Genre {
+  id: number;
+  genre: string;
+}
 
 interface SideBarProps {
   setCurrentGenre: (id: number, title: string) => void
 }
 
-export default class Sidebar extends React.Component<SideBarProps, {}> {
+interface SideBarState {
+  genreList: Genre[];
+}
+
+export default class Sidebar extends React.Component<SideBarProps, SideBarState> {
+  state: SideBarState = {
+    genreList: []
+  }
+
+  async componentDidMount() {
+    try {
+      const response = await axios.get<Genre[]>('http://localhost:8080/genres');
+      const genres = response.data;
+      this.setState({genreList: genres});
+    } catch(error) {
+      return <p>Error!</p>;
+    }
+  }
 
   handleButtonClick = async (params: { genre: number, title: string }) => {
     this.props.setCurrentGenre(params.genre, params.title)
@@ -17,13 +40,12 @@ export default class Sidebar extends React.Component<SideBarProps, {}> {
       <div>
         <div className="navigation">
           <ul>
-              <button onClick={() =>this.handleButtonClick({ genre: 0, title: "All Movies" })}>All Movies</button>
-              <button onClick={() =>this.handleButtonClick({ genre: 1, title: "Drama" })}>Drama</button>
-              <button onClick={() =>this.handleButtonClick({ genre: 2, title: "Action" })}>Action</button>
-              <button onClick={() =>this.handleButtonClick({ genre: 3, title: "Adventure" })}>Adventure</button>
-              <button onClick={() =>this.handleButtonClick({ genre: 4, title: "Sci-Fi" })}>Sci-Fi</button>
-              <button onClick={() =>this.handleButtonClick({ genre: 5, title: "Comedy" })}>Comedy</button>
-              <button onClick={() =>this.handleButtonClick({ genre: 6, title: "Animation" })}>Animation</button>
+            <button onClick={() =>this.handleButtonClick({ genre: 0, title: "All Movies" })}>All Movies</button>
+            {this.state.genreList.map((g) => {
+                return (
+                  <button onClick={() =>this.handleButtonClick({ genre: g.id, title: g.genre })}>{ g.genre }</button>
+                );
+              })}
           </ul>
         </div>
       </div>
