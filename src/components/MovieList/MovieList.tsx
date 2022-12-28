@@ -3,25 +3,51 @@ import "./MovieList.css";
 import "../style.css";
 import axios from "axios";
 
+interface Movie {
+  title: string;
+  rating: number
+}
+
 interface MovieListState {
   movieList: { title: string; rating: number }[];
   loading: boolean;
   error: any;
 }
 
-export default class MovieList extends React.Component<{}, MovieListState> {
+interface MovieListProps {
+  genre: { id: number, title: string } 
+}
+
+export default class MovieList extends React.Component<MovieListProps, MovieListState> {
   state: MovieListState = {
     movieList: [],
     loading: true,
     error: null,
   };
 
-  async componentDidMount() {
+  async getMoviesByGenre(genreId: number): Promise<Movie[]> {
+    const response = await axios.get<Movie[]>(`http://localhost:8080/movies?genre_id=${genreId}`);
+    return response.data
+  }
+
+  async setMovieState(genreId: number): Promise<void> {
     try {
-      const response = await axios.get("http://localhost:8080/movies/rating");
-      this.setState({ movieList: response.data, loading: false });
+      const movies = await this.getMoviesByGenre(genreId)
+      this.setState({ movieList: movies, loading: false });
     } catch (error) {
       this.setState({ error, loading: false });
+    }
+  }
+
+  componentDidMount() {
+    this.setMovieState(this.props.genre.id)
+  }
+
+  componentDidUpdate(prevProps: MovieListProps, prevState: MovieListState, snapshot: any) {
+    const currentId = this.props.genre.id;
+    if (prevProps.genre.id !== currentId) {
+      // Update movie list based on currentId
+      this.setMovieState(currentId)
     }
   }
 
@@ -35,7 +61,7 @@ export default class MovieList extends React.Component<{}, MovieListState> {
 
     return (
       <div className="movie-grid">
-        <h3 className="genre-title">All Movies</h3>
+        <h3 className="genre-title">{this.props.genre.title}</h3>
         <div className="movie-list">
           <ol>
             {this.state.movieList.map((movie, i) => {
