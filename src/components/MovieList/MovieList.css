@@ -2,14 +2,14 @@
     margin-left: 210px;
     height: 100%;
     width: 85vw;
-    position: fixed;
-    background-color: aqua;
+    background-color: black;
     overflow-x: hidden;
     overflow-y: scroll;
 }
 .movie-grid h3 {
     text-align: center;
     text-decoration: underline;
+    color: white;
 }
 .movie-list {
     margin-top: 10px;
@@ -25,6 +25,12 @@
 .movie-list ol li {
     padding: 2px;
     overflow: auto;
+    color: white;
+}
+
+.movie img {
+    width: 12vw;
+    height: 18vw;
 }
 
 @media (max-width: 767px) {

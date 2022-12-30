@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Movies from "./components/Movies";
 import Home from "./components/Home";
 import ContactPage from "./components/ContactPage/ContactPage";

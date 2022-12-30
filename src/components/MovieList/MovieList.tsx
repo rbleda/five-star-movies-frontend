@@ -4,23 +4,27 @@ import "../style.css";
 import axios from "axios";
 
 interface Movie {
+  id: number;
   title: string;
-  rating: number
+  rating: number;
+  genre_id: number;
+  image_uri: string;
 }
 
 interface MovieListState {
-  movieList: { title: string; rating: number }[];
+  movie_list: Movie[];
   loading: boolean;
   error: any;
 }
 
 interface MovieListProps {
-  genre: { id: number, title: string } 
+  genre: { id: number, title: string };
+  title: string;
 }
 
 export default class MovieList extends React.Component<MovieListProps, MovieListState> {
   state: MovieListState = {
-    movieList: [],
+    movie_list: [],
     loading: true,
     error: null,
   };
@@ -30,24 +34,43 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
     return response.data
   }
 
-  async setMovieState(genreId: number): Promise<void> {
+  async getMoviesByTitle(title: string): Promise<Movie[]> {
+    const response = await axios.get<Movie[]>(`http://localhost:8080/movies/search?title=${title}`)
+    return response.data
+  }
+
+  async setMovieState(genreId: number, title: string): Promise<void> {
     try {
-      const movies = await this.getMoviesByGenre(genreId)
-      this.setState({ movieList: movies, loading: false });
+      if (title === "") {
+        const movies = await this.getMoviesByGenre(genreId)
+        this.setState({ movie_list: movies, loading: false });
+      }
+      else if (title !== "") {
+        const movies = await this.getMoviesByTitle(title);
+        this.setState({movie_list: movies, loading: false});
+      }
+      else {
+        return;
+      }
     } catch (error) {
       this.setState({ error, loading: false });
     }
   }
 
   componentDidMount() {
-    this.setMovieState(this.props.genre.id)
+    this.setMovieState(this.props.genre.id, "")
   }
 
   componentDidUpdate(prevProps: MovieListProps, prevState: MovieListState, snapshot: any) {
     const currentId = this.props.genre.id;
     if (prevProps.genre.id !== currentId) {
       // Update movie list based on currentId
-      this.setMovieState(currentId)
+      this.setMovieState(currentId, "")
+      return;
+    }
+    const currentTitle = this.props.title;
+    if (prevProps.title !== currentTitle) {
+      this.setMovieState(0, currentTitle)
     }
   }
 
@@ -64,12 +87,15 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
         <h3 className="genre-title">{this.props.genre.title}</h3>
         <div className="movie-list">
           <ol>
-            {this.state.movieList.map((movie, i) => {
+            {this.state.movie_list.map((movie, i) => {
               const num = `${i + 1}. ${movie.title}`;
               return (
-                <li className="movie">
-                  {num}({movie.rating})
-                </li>
+                <div className="movie">
+                  <img src={movie.image_uri}></img>
+                  <li className="movie">
+                    {num}({movie.rating})
+                  </li>
+                </div>
               );
             })}
           </ol>
