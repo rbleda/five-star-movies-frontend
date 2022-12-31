@@ -1,12 +1,22 @@
 form {
+    /*
     position: relative;
     left: 15vw;
+    */
+    padding: 5px;
+    position: absolute;
+    left: 11.5vw;
 }
 
 button {
     width: 5vw;
+    margin: 3px;
+    border-radius: 10px;
 }
 
 input {
     width: 20vw;
+    border-radius: 10px;
+    background-color: darkslategray;
+    color: white;
 }

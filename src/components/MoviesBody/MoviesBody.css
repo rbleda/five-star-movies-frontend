@@ -1,0 +1,11 @@
+/*
+.movies-container {
+    display: flex;
+    align-items:flex-start;
+}
+*/
+
+.siebar-list-container {
+    display: flex;
+    flex-direction: row;
+}

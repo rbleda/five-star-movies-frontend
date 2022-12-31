@@ -1,12 +1,14 @@
 .movie-grid {
-    margin-left: 210px;
+    /*margin-left: 210px;
     height: 100%;
     width: 85vw;
     background-color: black;
+    
     overflow-x: hidden;
     overflow-y: scroll;
+    */
 }
-.movie-grid h3 {
+.movie-grid h2 {
     text-align: center;
     text-decoration: underline;
     color: white;
@@ -20,7 +22,7 @@
     align-items: start;
     justify-items: start;
     gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 .movie-list ol li {
     padding: 2px;

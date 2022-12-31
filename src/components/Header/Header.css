@@ -4,7 +4,7 @@
   padding-left: 20px;
   align-items: center;
   border: 1px solid black;
-  background: lightseagreen;
+  background: darkslategray;
   border-radius: 7px;
 }
 
@@ -21,7 +21,8 @@
 }
 
 .nav-bar-subscript a {
-  background: red;
+  background: rgb(2, 27, 27);
+  color: gold;
   border-radius: 20px;
   border: 1px solid black;
   text-decoration: none;
@@ -29,5 +30,6 @@
 }
 
 .nav-bar-subscript a:hover {
-  background: lightblue;
+  background: lightgrey;
+  color: black;
 }

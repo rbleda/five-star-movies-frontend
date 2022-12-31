@@ -3,6 +3,7 @@ import "./SearchBar.css";
 
 interface SearchBarProps {
     setCurrentTitle: (title: string) => void
+    setCurrentGenre: (id: number, title: string) => void
 }
 
 interface SearchBarState {
@@ -17,6 +18,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     handleSubmit: FormEventHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         this.props.setCurrentTitle(this.state.input);
+        this.props.setCurrentGenre(500, "")
         this.setState({ input: "" })
     };
 
@@ -27,8 +29,8 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <button type="submit">Search</button>
         <input type="text" value={this.state.input} onChange={this.handleChange} />
+        <button type="submit">Search</button>
       </form>
     );
   }

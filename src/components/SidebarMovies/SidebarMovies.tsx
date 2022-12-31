@@ -10,6 +10,7 @@ interface Genre {
 
 interface SideBarProps {
   setCurrentGenre: (id: number, title: string) => void
+  setCurrentTitle: (title: string) => void
 }
 
 interface SideBarState {
@@ -33,6 +34,7 @@ export default class Sidebar extends React.Component<SideBarProps, SideBarState>
 
   handleButtonClick = async (params: { genre: number, title: string }) => {
     this.props.setCurrentGenre(params.genre, params.title)
+    this.props.setCurrentTitle("");
   };
 
   render() {

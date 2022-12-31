@@ -13,18 +13,20 @@ interface Movie {
 
 interface MovieListState {
   movie_list: Movie[];
+  header: string;
   loading: boolean;
   error: any;
 }
 
 interface MovieListProps {
   genre: { id: number, title: string };
-  title: string;
+  movie_search_title: string;
 }
 
 export default class MovieList extends React.Component<MovieListProps, MovieListState> {
   state: MovieListState = {
     movie_list: [],
+    header: "",
     loading: true,
     error: null,
   };
@@ -43,11 +45,12 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
     try {
       if (title === "") {
         const movies = await this.getMoviesByGenre(genreId)
-        this.setState({ movie_list: movies, loading: false });
+        this.setState({ movie_list: movies, loading: false, header: this.props.genre.title });
       }
       else if (title !== "") {
         const movies = await this.getMoviesByTitle(title);
-        this.setState({movie_list: movies, loading: false});
+        const searched_header = "Results for: '" + this.props.movie_search_title + "'";
+        this.setState({movie_list: movies, loading: false, header: searched_header });
       }
       else {
         return;
@@ -63,14 +66,21 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
 
   componentDidUpdate(prevProps: MovieListProps, prevState: MovieListState, snapshot: any) {
     const currentId = this.props.genre.id;
-    if (prevProps.genre.id !== currentId) {
+    const currentTitle = this.props.movie_search_title;
+    if (currentId === 500) {
+
+    }
+    else if (prevProps.genre.id !== currentId) {
       // Update movie list based on currentId
       this.setMovieState(currentId, "")
       return;
     }
-    const currentTitle = this.props.title;
-    if (prevProps.title !== currentTitle) {
+    if (currentTitle === "") {
+
+    }
+    else if (prevProps.movie_search_title !== currentTitle) {
       this.setMovieState(0, currentTitle)
+      return;
     }
   }
 
@@ -81,23 +91,41 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
     if (this.state.error) {
       return <p>Error: {this.state.error.message}</p>;
     }
+    if (this.state.movie_list.length === 0) {
+      return (
+        <div className="movie-grid">
+        <h2 className="header">{this.state.header}</h2>
+        <div className="movie-list">
+          <ol>
+            <div className="Movie">
+              <img alt="There are no movies with this title in the application."></img>
+              <li className="movie-text">
+                Make sure there are no spelling errors in the inputted title.
+              </li>
+            </div>
+          </ol>
+        </div>
+      </div>
+      );
+    }
 
     return (
       <div className="movie-grid">
-        <h3 className="genre-title">{this.props.genre.title}</h3>
+        <h2 className="header">{this.state.header}</h2>
         <div className="movie-list">
           <ol>
-            {this.state.movie_list.map((movie, i) => {
-              const num = `${i + 1}. ${movie.title}`;
-              return (
-                <div className="movie">
-                  <img src={movie.image_uri}></img>
-                  <li className="movie">
-                    {num}({movie.rating})
-                  </li>
-                </div>
+          {this.state.movie_list.map((movie, i) => {
+            const num = `${i + 1}. ${movie.title}`;
+            return (
+              <div className="movie">
+                <img src={movie.image_uri}></img>
+                <li className="movie-text">
+                  {num}({movie.rating})
+                </li>
+              </div>
               );
-            })}
+            })
+          }
           </ol>
         </div>
       </div>

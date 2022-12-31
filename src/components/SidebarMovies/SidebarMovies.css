@@ -1,21 +1,27 @@
 .navigation {
+    /*
     margin: 0;
     margin-left: 0;
+    */
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    position: fixed;
+    /*position: fixed;
     width: 14.5vw;
     height: 100%;
+    */
     background: black;
     border-radius: 10px;
     /*border: 2px solid gold;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .navigation .genreList {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
 }
 
 .navigation .genreList button {

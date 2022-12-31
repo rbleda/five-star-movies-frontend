@@ -2,6 +2,7 @@ import React from "react";
 import MovieList from "../MovieList/MovieList";
 import SearchBar from "../SearchBar/SearchBar";
 import SidebarMovies from "../SidebarMovies/SidebarMovies";
+import "./MoviesBody.css";
 
 export default class MoviesBody extends React.Component {
     state = {
@@ -19,10 +20,12 @@ export default class MoviesBody extends React.Component {
 
   render() {
     return (
-      <div>
-        <SearchBar setCurrentTitle={this.setCurrentTitle} />
-        <SidebarMovies setCurrentGenre={this.setCurrentGenre} />
-        <MovieList genre={this.state.currentGenre} title={this.state.currentTitle}/>
+      <div className="movies-container">
+        <SearchBar setCurrentTitle={this.setCurrentTitle} setCurrentGenre={this.setCurrentGenre} />
+        <div className="siebar-list-container">
+            <SidebarMovies setCurrentGenre={this.setCurrentGenre} setCurrentTitle={this.setCurrentTitle} />
+            <MovieList genre={this.state.currentGenre} movie_search_title={this.state.currentTitle}/>
+        </div>
       </div>
     );
   }
