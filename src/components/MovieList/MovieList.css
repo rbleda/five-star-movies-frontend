@@ -33,6 +33,18 @@
 .movie img {
     width: 12vw;
     height: 18vw;
+    cursor: pointer;
+}
+
+.pageControls {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+}
+
+.pageControls .pageNumber {
+    margin: 5px;
 }
 
 @media (max-width: 767px) {
