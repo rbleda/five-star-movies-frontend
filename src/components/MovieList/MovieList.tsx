@@ -2,7 +2,8 @@ import React from "react";
 import "./MovieList.css";
 import "../style.css";
 import axios from "axios";
-import MovieWithPopup from '../MovieWithPopup/MovieWithPopup';
+import MovieWithPopup from '../MovieDetail/MovieDetail';
+import { Link } from "react-router-dom";
 
 interface Movie {
   id: number;
@@ -164,7 +165,7 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
             const num = `${((this.state.page_number - 1) * 30) + i + 1}. ${movie.title}`;
             return (
               <div className="movie">
-                <MovieWithPopup src={movie.image_uri} popupContent={movie.id}/>
+                <Link to={`/movies/${movie.id}`}><img src={movie.image_uri}/></Link>
                 <li className="movie-text">
                   {num}({movie.rating})
                 </li>

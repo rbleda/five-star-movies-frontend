@@ -14,8 +14,6 @@ export default class Header extends React.Component {
           <div className="nav-bar-subscript">
             <Link to="/">Home</Link>
             <Link to="/movies">Movie Rankings</Link>
-            <Link to="/tv">TV Rankings</Link>
-            <Link to="/contact">Contact</Link>
           </div>
         </div>
       </header>

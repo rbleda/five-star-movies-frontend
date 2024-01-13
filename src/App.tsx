@@ -2,8 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Movies from "./components/Movies";
 import Home from "./components/Home";
-import ContactPage from "./components/ContactPage/ContactPage";
-import Tv from "./components/Tv";
+import MovieWithPage from './components/MovieDetail/MovieDetail';
 
 function App() {
   return (
@@ -12,8 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/tv" element={<Tv />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/movies/:id" element={<MovieWithPage />} />
         </Routes>
       </BrowserRouter>
     </>

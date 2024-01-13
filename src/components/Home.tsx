@@ -1,9 +1,5 @@
 import React from "react";
 import Header from "./Header/Header";
-import About from "./About/About";
-import TopMoviesGrid from "./TopMoviesGrid/TopMoviesGrid";
-import Criteria from "./Criteria/Criteria";
-import News from "./News/News";
 
 export default class Home extends React.Component {
   render() {
@@ -23,7 +19,7 @@ export default class Home extends React.Component {
               the visuals and the action scnes were pretty cool. I also liked how they focused a lot more on the kids, giving it a rare new twist,
               but I couldn't stop seeing the similarities to the first. A must watch for the visuals but not a movie you'll love.
             </p>
-            <h6>December 23, 2022</h6>
+            <h6>December 23rd, 2022</h6>
           </li>
           <li>
             <h3>Glass Onion: A Knives Out Mystery</h3>
@@ -37,7 +33,7 @@ export default class Home extends React.Component {
               on the delivery of his findings as inspector. Rewatch the first movie if you can and avoid Netflix movies until otherwise
               publicized.
             </p>
-            <h6>December 24, 2022</h6>
+            <h6>December 24th, 2022</h6>
           </li>
         </ol>
         <h2>Updated Movie Ratings</h2>
@@ -52,7 +48,7 @@ export default class Home extends React.Component {
               Star Wars to much to put it below a a seven rating but lets just say it probably belongs there. the lighsaber scenes and 
               colloseum scene at the end are still legendary though.
             </p>
-            <h6>December 30, 2022</h6>
+            <h6>December 30th, 2022</h6>
           </li>
         </ol>
         <h2>Five Star Recommendations</h2>
@@ -67,10 +63,21 @@ export default class Home extends React.Component {
               very nicely but is definetly overshadowed by Simmons. This drama is a movie for everyone and definetly worth the short run time
               of the film.
             </p>
-            <h6>December 30, 2022</h6>
+            <h6>December 30th, 2022</h6>
           </li>
           <li>
-
+            <h3>The King's Speech</h3>
+            <h4>Rating: 8.0</h4>
+            <p>
+              The King's Speech is a truly great movie. I've recently been watching a lot of historical fiction movies such
+              as Darkest Hour, a movie about Winston Churchill. This movie ironically takes place about a decade before Darkest Hour
+              and involves one of the most contoversial British political events of all their history. What's really special about this
+              movie is the fact that it diplays an incredibly powerful relationship between the Duke of York(2nd prince of Britain) and 
+              a common civilian of the nation. I loved the way this relationship was depicted in the movie most of all, and it gives
+              real emotion. Colin Ferth also puts together a stunning performance as the Duke of York and later King of England. The
+              reason this movie isn't higher is because of it's pace but overall a great watch!
+            </p>
+            <h6>January 5th, 2023</h6>
           </li>
         </ol>
       </div>
