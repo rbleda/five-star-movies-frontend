@@ -1,0 +1,36 @@
+
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#root {
+    height: 100vh;
+}
+
+.detailContainer {
+    max-width: 800px; /* Set the maximum width of the container */
+    margin: 0 auto; /* Center the container horizontally */
+    background-color: white; /* Set the background color of the central column */
+    padding: 20px; /* Add some spacing inside the container */
+    height: 100%;
+}
+
+.movieInfo {
+    display: flex; /* Use flexbox for layout */
+}
+
+.movieInfo img {
+    max-width: 200px; /* Limit the width of the movie image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.movieInfo p, .movieInfo h1 {
+    color: black;
+}
+
