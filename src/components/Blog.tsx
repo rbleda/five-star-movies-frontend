@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header/Header";
 
-export default class Home extends React.Component {
+export default class Blog extends React.Component {
   render() {
     return (
       <div>
@@ -84,19 +84,3 @@ export default class Home extends React.Component {
     )
   }
 }
-
-/*
-export default class Home extends React.Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <About />
-        <TopMoviesGrid />
-        <Criteria />
-        <News />
-      </div>
-    );
-  }
-}
-*/

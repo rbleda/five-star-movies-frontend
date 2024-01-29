@@ -30,11 +30,11 @@ class MovieWithPage extends React.Component<MovieWithPageProps> {
     
     return (
       <div className='detailContainer'>
-        <div className='movieInfo'>
-          <h1>{movie.title}</h1>
-          <img src={movie.image_uri}/>
+          <div className='movieDetailHeader'>
+            <img src={movie.image_uri}/>  
+            <h1>{movie.title} ({movie.rating})</h1>
+          </div>
           <p>{movie.movie_description}</p>
-        </div>
       </div>
     );
   }

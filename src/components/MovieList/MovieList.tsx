@@ -2,11 +2,11 @@ import React from "react";
 import "./MovieList.css";
 import "../style.css";
 import axios from "axios";
-import MovieWithPopup from '../MovieDetail/MovieDetail';
 import { Link } from "react-router-dom";
 
 interface Movie {
   id: number;
+  position: number;
   title: string;
   rating: number;
   genre_id: number;
@@ -114,7 +114,7 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
   }
 
   async setMovieListPageForward(current_page_number: number) {
-    if (this.state.movie_list.length < 30 || this.state.movie_list.length === 0) {
+    if (this.state.movie_list.length < 35 || this.state.movie_list.length === 0) {
       return;
     }
     else {
@@ -133,10 +133,18 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
 
   render() {
     if (this.state.loading) {
-      return <p>Loading data...</p>;
+      return (
+        <div className="movie-body">
+          <p style={{ color: 'green' }} >Loading data...</p>
+        </div>
+      );
     }
     if (this.state.error) {
-      return <p>Error: {this.state.error.message}</p>;
+      return (
+        <div className="movie-body">
+          <p style={{ color: 'red' }}>Error: {this.state.error.message}</p>
+        </div>
+      );
     }
     if (this.state.movie_list.length === 0) {
       return (
@@ -162,10 +170,10 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
         <div className="movie-list">
           <ol>
           {this.state.movie_list.map((movie, i) => {
-            const num = `${((this.state.page_number - 1) * 30) + i + 1}. ${movie.title}`;
+            const num = `${movie.position}. ${movie.title}`;
             return (
               <div className="movie">
-                <Link to={`/movies/${movie.id}`}><img src={movie.image_uri}/></Link>
+                <img src={movie.image_uri}/>
                 <li className="movie-text">
                   {num}({movie.rating})
                 </li>

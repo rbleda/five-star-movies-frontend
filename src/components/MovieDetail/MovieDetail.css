@@ -16,21 +16,20 @@ body {
 .detailContainer {
     max-width: 800px; /* Set the maximum width of the container */
     margin: 0 auto; /* Center the container horizontally */
-    background-color: white; /* Set the background color of the central column */
+    background-color: black; /* Set the background color of the central column */
+    border-style: groove;
+    border-color: white;
     padding: 20px; /* Add some spacing inside the container */
     height: 100%;
 }
 
-.movieInfo {
-    display: flex; /* Use flexbox for layout */
+.movieDetailHeader {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Align items vertically in the center */
 }
 
-.movieInfo img {
-    max-width: 200px; /* Limit the width of the movie image */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.movieInfo p, .movieInfo h1 {
-    color: black;
+.movieDetailHeader img {
+    max-block-size: 200px;
+    margin-right: 30px;
 }
 

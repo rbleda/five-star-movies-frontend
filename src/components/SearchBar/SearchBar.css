@@ -12,6 +12,7 @@ button {
     width: 5vw;
     margin: 3px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 input {

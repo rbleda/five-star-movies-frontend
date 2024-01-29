@@ -36,6 +36,7 @@
 
 .navigation .genreList button:hover {
     border-color:gold;
+    cursor: pointer;
 }
 
 /*

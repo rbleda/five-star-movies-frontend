@@ -1,17 +1,13 @@
-.movie-grid {
-    /*margin-left: 210px;
-    height: 100%;
-    width: 85vw;
-    background-color: black;
-    
-    overflow-x: hidden;
-    overflow-y: scroll;
-    */
-}
 .movie-grid h2 {
     text-align: center;
     text-decoration: underline;
     color: white;
+}
+
+.movie-body {
+    min-width: 87vw;
+    padding-top: 5vh;
+    padding-left: 1vw;
 }
 .movie-list {
     margin-top: 10px;
@@ -22,7 +18,8 @@
     align-items: start;
     justify-items: start;
     gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    min-width: 88vw;
 }
 .movie-list ol li {
     padding: 2px;
@@ -31,9 +28,9 @@
 }
 
 .movie img {
-    width: 12vw;
-    height: 18vw;
-    cursor: pointer;
+    width: 11vw;
+    height: 17vw;
+    /*cursor: pointer;*/
 }
 
 .pageControls {
