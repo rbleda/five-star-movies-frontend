@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.blog-movies {
+    text-align: center;
+}
+
+.blog-movies h1 {
+    text-decoration: underline;
+}
+
+.blog-movies ol {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); /* Two columns with a minimum width of 45% each */
+    gap: 20px; /* Adjust the spacing between grid items */
+}
+
+.blog-movies li {
+    /* ... your existing styles ... */
+    border: 2px solid white;
+    border-radius: 10px; /* Optional: Add border radius for rounded corners */
+    display: flex;
+    flex-direction: column;
+    /*align-items: flex-start;*/
+    align-items: center;
+}
+
+.blog-movies li img {
+    width: 200px;
+    height: 300px;
+    /*max-height: 100px; Set a max height for the images */
+    margin-right: 10px; /* Adjust the spacing between image and text */
+}
+
+.blog-movies li div {
+    flex: 1;
+}
+
+/* Optional: Style individual components inside li */
+.blog-movies li h1,
+.blog-movies li h2,
+.blog-movies li p, 
+.blog-movies li h6 {
+    margin: 0;
+}
