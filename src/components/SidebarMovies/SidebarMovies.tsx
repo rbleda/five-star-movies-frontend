@@ -25,7 +25,7 @@ export default class Sidebar extends React.Component<SideBarProps, SideBarState>
 
   async componentDidMount() {
     try {
-      const response = await axios.get<Genre[]>(`${config.baseURL}:8080/genres`);
+      const response = await axios.get<Genre[]>(`${config.baseURL}/genres`);
       const genres = response.data;
       this.setState({genreList: genres});
     } catch(error) {
