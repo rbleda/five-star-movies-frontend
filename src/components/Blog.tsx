@@ -51,7 +51,7 @@ export default class Blog extends React.Component {
             <h6>December 30th, 2022</h6>
           </li>
         </ol>
-        <h2>Five Star Recommendations</h2>
+        <h2>Five Stars Recommendations</h2>
         <ol>
           <li>
             <h3>Whiplash</h3>
