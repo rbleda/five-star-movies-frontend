@@ -2,7 +2,7 @@ import React from "react";
 import "./SidebarMovies.css";
 import "../style.css";
 import axios from "axios";
-import API_BASE_URL from "../../config";
+import config from "../../config";
 
 interface Genre {
   id: number;
@@ -25,7 +25,7 @@ export default class Sidebar extends React.Component<SideBarProps, SideBarState>
 
   async componentDidMount() {
     try {
-      const response = await axios.get<Genre[]>(`${API_BASE_URL}:8080/genres`);
+      const response = await axios.get<Genre[]>(`${config.baseURL}:8080/genres`);
       const genres = response.data;
       this.setState({genreList: genres});
     } catch(error) {

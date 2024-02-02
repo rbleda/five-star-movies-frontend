@@ -3,7 +3,7 @@ import "./MovieList.css";
 import "../style.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import API_BASE_URL from "../../config";
+import config from "../../config";
 
 interface Movie {
   id: number;
@@ -37,12 +37,12 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
   };
 
   async getMoviesByGenre(genreId: number, page_number: number): Promise<Movie[]> {
-    const response = await axios.get<Movie[]>(`${API_BASE_URL}:8080/movies?genre_id=${genreId}&page_number=${page_number}`);
+    const response = await axios.get<Movie[]>(`${config.baseURL}:8080/movies?genre_id=${genreId}&page_number=${page_number}`);
     return response.data
   }
 
   async getMoviesByTitle(title: string, page_number: number): Promise<Movie[]> {
-    const response = await axios.get<Movie[]>(`${API_BASE_URL}:8080/movies/search?title=${title}&page_number=${page_number}`)
+    const response = await axios.get<Movie[]>(`${config.baseURL}:8080/movies/search?title=${title}&page_number=${page_number}`)
     return response.data
   }
 
