@@ -9,7 +9,7 @@ export default class Header extends React.Component {
       <header>
         <div className="nav-bar">
           <Link to="/">
-            <h1 className="logo">Five Stars Movies</h1>
+            <h1 className="logo">Five Star Movies</h1>
           </Link>
           <div className="nav-bar-subscript">
             <Link to="/">Movie Rankings</Link>

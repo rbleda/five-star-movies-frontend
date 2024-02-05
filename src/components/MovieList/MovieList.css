@@ -49,6 +49,7 @@
         left: -60px;
     }
     .movie-list ol {
-        column-count: 1;
+        grid-template-columns: 1fr 1fr; /* Adjust the number of columns for smaller screens */
+        min-width: auto; /* Allow the list to shrink to the screen width */
     }
 }

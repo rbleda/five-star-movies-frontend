@@ -11,26 +11,26 @@ export default class NewBlog extends React.Component {
             <h1>Recommended Movies</h1>
             <ol>
                 <li>
-                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/the_incredibles.jpg"></img>
+                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/the_incredibles.jpg" alt="Not available."></img>
                     <div>
                         <h1>8.5 - The Incredibles</h1>
                         <h6>January 25th, 2024</h6>
                         <p>Wow! This movie is just nuts. It is truly the best animated movie I have ever seen, and it has stayed
-                            that way for a long time. This is obviously a classic and it is a recommendation that you 
+                            that way for a long time. Its obviously a classic and its a recommendation that you 
                             probably don't need, but just for those few that have never given it a try, or if you
-                            just need a friendly reminder of its brilliance give this a watch. A great family night
+                            just need a friendly reminder of its brilliance, give this a watch. A great family night
                             film for everyone!
                         </p>
                     </div>
                 </li>
                 <li>
-                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/the_departed.jpeg"></img>
+                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/the_departed.jpeg" alt="Not available."></img>
                     <div>
                         <h1>8.3 - The Departed</h1>
                         <h6>January 30th, 2024</h6>
                         <p>This movie is my second favorite mafia movie of all time, coming in right behind Goodfellas. That being
-                            said it is not as well known as Goodfellas, which is why it is on this list of recommendations. This movie
-                            has it all, but what makes it truly great it how it flows through the plot of the FBI under cover cop in
+                            said it is not as well known as Goodfellas, which is why its on this list. This movie
+                            has it all, but what makes it truly great is how it flows through the plot of the FBI under cover cop in
                             the mafia, and the mafia rat in the FBI. It makes for high anticipation and tense moments throughout the film.
                             Not to mention, the amazing performances by Leonardo Dicaprio and Jack Nicholson who portrays the ruthless
                             Whitey Bulger under the name Costello in the film. This is a great movie for those Bostonians out there and
@@ -39,24 +39,24 @@ export default class NewBlog extends React.Component {
                     </div>
                 </li>
                 <li>
-                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/warrior.jpeg"></img>
+                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/warrior.jpeg" alt="Not available."></img>
                     <div>
                         <h1>8.1 - Warrior</h1>
                         <h6>January 28th, 2024</h6>
                         <p>I've heard many times from friends and critics alike that this movie is highly underrated, I couldn't agree more.
                             It has remarkable mixed martial arts scenes, which are choreographed beautifully for those UFC fans out there, but
-                            it's really the story that hooks you in. This movie, quite impressivly, has little to no exposition. This is something
+                            its really the story that hooks you in. This movie, quite impressivly, has little to no exposition. Its something
                             that I really love about movies, you find out who the characters are and what their intentions may be purely by
                             watching the movie unfold. Its impossible to not fall in love with this story, give it a try!
                         </p>
                     </div>
                 </li>
                 <li>
-                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/mid90s.jpeg"></img>
+                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/mid90s.jpeg" alt="Not available."></img>
                     <div>
                         <h1>7.7 - Mid90s</h1>
                         <h6>January 28th, 2024</h6>
-                        <p>This is my longshot recommendation, one that could really impress you, I believe. The first thing
+                        <p>This is my longshot recommendation, but one that could really impress you. The first thing
                             you should know is that Jonah Hill directed this movie, which is wild. The next thing you should
                             know is much like Jonah Hill's public annoucements of his mental health, this movie also
                             packs quite the emotional punch. That being said, it is incredibly well made and one the great
@@ -70,7 +70,7 @@ export default class NewBlog extends React.Component {
             <h1>Recently Ranked Movies</h1>
             <ol>
                 <li>
-                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/the_big_short.jpeg"></img>
+                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/the_big_short.jpeg" alt="Not available."></img>
                     <div>
                         <h1>7.7 - The Big Short</h1>
                         <h6>January 28th, 2024</h6>
@@ -81,7 +81,7 @@ export default class NewBlog extends React.Component {
                     </div>
                 </li>
                 <li>
-                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/v_for_vendetta.jpeg"></img>
+                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/v_for_vendetta.jpeg" alt="Not available."></img>
                     <div>
                         <h1>8.4 - V for Vendetta</h1>
                         <h6>January 28th, 2024</h6>
@@ -97,11 +97,11 @@ export default class NewBlog extends React.Component {
             <h1>Updated Movie Rankings</h1>
             <ol>
                 <li>
-                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/arrival.jpeg"></img>
+                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/arrival.jpeg" alt="Not available."></img>
                     <div>
                         <h1>7.6 -{">"} 7.8 - Arrival</h1>
                         <h6>January 29th, 2024</h6>
-                        <p>Rewatching this movie I noticed many new components that I didn't see the first time watching this.
+                        <p>Rewatching this movie I noticed many new components that I didn't see the first time.
                             I noticed great pace and character building. For some odd reason the first time I saw it I found
                             it to be quite slow and boring from the get go, that was not the case this watch. I felt it built really
                             nicely, getting me hooked into what the resolve of the crisis was going to be. This, in turn, gave me better
@@ -110,7 +110,7 @@ export default class NewBlog extends React.Component {
                     </div>
                 </li>
                 <li>
-                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/wedding_crashers.jpeg"></img>
+                    <img src="https://fivestarmoviesimages.s3.amazonaws.com/covers_movie/wedding_crashers.jpeg" alt="Not available."></img>
                     <div>
                         <h1>7.5 -{">"} 7.6 - Wedding Crashers</h1>
                         <h6>January 30th, 2024</h6>
