@@ -1,6 +1,7 @@
 import React from "react";
 import "./MovieList.css";
 import "../style.css";
+import ApiService from "../../API/ApiService";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import config from "../../config";
@@ -27,6 +28,8 @@ interface MovieListProps {
   movie_search_title: string;
 }
 
+const apiService = new ApiService(config.baseURL);
+
 export default class MovieList extends React.Component<MovieListProps, MovieListState> {
   state: MovieListState = {
     movie_list: [],
@@ -36,24 +39,14 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
     error: null,
   };
 
-  async getMoviesByGenre(genreId: number, page_number: number): Promise<Movie[]> {
-    const response = await axios.get<Movie[]>(`${config.baseURL}/movies?genre_id=${genreId}&page_number=${page_number}`);
-    return response.data
-  }
-
-  async getMoviesByTitle(title: string, page_number: number): Promise<Movie[]> {
-    const response = await axios.get<Movie[]>(`${config.baseURL}/movies/search?title=${title}&page_number=${page_number}`)
-    return response.data
-  }
-
   async setMovieState(genreId: number, title: string): Promise<void> {
     try {
       if (title === "") {
-        const movies = await this.getMoviesByGenre(genreId, 1)
+        const movies = await apiService.getMoviesByGenre(genreId, 1)
         this.setState({ movie_list: movies, loading: false, header: this.props.genre.title, page_number: 1 });
       }
       else if (title !== "") {
-        const movies = await this.getMoviesByTitle(title, 1);
+        const movies = await apiService.getMoviesByTitle(title, 1);
         const searched_header = "Results for: '" + this.props.movie_search_title + "'";
         this.setState({movie_list: movies, loading: false, header: searched_header, page_number: 1 });
       }
@@ -104,11 +97,11 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
     else {
       let movies = [];
       if (this.props.genre.id === 500) {
-        movies = await this.getMoviesByTitle(this.props.movie_search_title, current_page_number - 1);
+        movies = await apiService.getMoviesByTitle(this.props.movie_search_title, current_page_number - 1);
         this.setState({ movie_list: movies, page_number: current_page_number - 1})
       }
       else {
-        movies = await this.getMoviesByGenre(this.props.genre.id, current_page_number - 1);
+        movies = await apiService.getMoviesByGenre(this.props.genre.id, current_page_number - 1);
         this.setState({ movie_list: movies, page_number: current_page_number - 1})
       }
     }
@@ -121,11 +114,11 @@ export default class MovieList extends React.Component<MovieListProps, MovieList
     else {
       let movies = [];
       if (this.props.genre.id === 500) {
-        movies = await this.getMoviesByTitle(this.props.movie_search_title, current_page_number + 1);
+        movies = await apiService.getMoviesByTitle(this.props.movie_search_title, current_page_number + 1);
         this.setState({ movie_list: movies, page_number: current_page_number + 1})
       }
       else {
-        movies = await this.getMoviesByGenre(this.props.genre.id, current_page_number + 1);
+        movies = await apiService.getMoviesByGenre(this.props.genre.id, current_page_number + 1);
         this.setState({ movie_list: movies, page_number: current_page_number + 1})
       }
       this.scrollToTop();
